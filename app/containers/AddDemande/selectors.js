@@ -5,7 +5,7 @@ import { initialState } from './reducer';
  * Direct selector to the addDemande state domain
  */
 
-const selectAddDemandeDomain = (state) => state.addDemande || initialState;
+const selectSideBarDomain = (state) => state.addDemande || initialState;
 
 /**
  * Other specific selectors
@@ -16,30 +16,35 @@ const selectAddDemandeDomain = (state) => state.addDemande || initialState;
  */
 
 const makeSelectAddDemande = () =>
-  createSelector(selectAddDemandeDomain, (substate) => substate);
+  createSelector(selectSideBarDomain, (substate) => substate);
 const makeSelectmatriculedemandeur = () =>
-  createSelector(selectAddDemandeDomain, (substate) => substate.matriculedemandeur);
+  createSelector(
+    selectSideBarDomain,
+    (substate) => substate.matriculedemandeur,
+  );
 const makeSelectnomequip = () =>
-  createSelector(selectAddDemandeDomain, (substate) => substate.nomequipement);
+  createSelector(selectSideBarDomain, (substate) => substate.nomequipement);
 const makeSelectquantite = () =>
-  createSelector(selectAddDemandeDomain, (substate) => substate.quantite);
+  createSelector(selectSideBarDomain, (substate) => substate.quantite);
 const makeSelecttypededemande = () =>
-  createSelector(selectAddDemandeDomain, (substate) => substate.typededemande);
+  createSelector(selectSideBarDomain, (substate) => substate.typededemande);
 const makeSelectpoiture = () =>
-  createSelector(selectAddDemandeDomain, (substate) => substate.pointure);
+  createSelector(selectSideBarDomain, (substate) => substate.pointure);
 const makeSelectLoading = () =>
-  createSelector(selectAddDemandeDomain, (substate) => substate.loading);
+  createSelector(selectSideBarDomain, (substate) => substate.loading);
 const makeSelectError = () =>
-  createSelector(selectAddDemandeDomain, (substate) => substate.error);
+  createSelector(selectSideBarDomain, (substate) => substate.error);
+const makeSelectIsSideBarVisible = () =>
+  createSelector(selectSideBarDomain, (substate) => substate.isSideBarVisible);
 
 export default makeSelectAddDemande;
-export { 
-  selectAddDemandeDomain,
+export {
   makeSelectmatriculedemandeur,
   makeSelectnomequip,
   makeSelectquantite,
   makeSelecttypededemande,
   makeSelectLoading,
   makeSelectError,
-  makeSelectpoiture
- };
+  makeSelectpoiture,
+  makeSelectIsSideBarVisible,
+};

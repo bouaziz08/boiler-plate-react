@@ -4,7 +4,7 @@
  *
  */
 import produce from 'immer';
-import { 
+import {
   CHANGE_MATRICULE,
   CHANGE_NOMEQUIPEMENT,
   CHANGE_QUANTITE,
@@ -14,8 +14,7 @@ import {
   ADD_DATA_SUCCESS,
   ADD_DATA_ERROR,
   DEMANDEPAGE_STORE_CLEANUP,
-
- } from './constants';
+} from './constants';
 
 export const initialState = {
   loading: false,
@@ -23,8 +22,8 @@ export const initialState = {
   matriculedemandeur: '',
   nomequipement: '',
   quantite: '',
-  typededemande: '',  
-  pointure:'',
+  typededemande: '',
+  pointure: '',
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -32,10 +31,10 @@ const addDemandeReducer = (state = initialState, action) =>
   produce(state, (draft) => {
     switch (action.type) {
       case CHANGE_MATRICULE:
-        draft.matriculedemandeur = action.matriculedemandeur; 
+        draft.matriculedemandeur = action.matriculedemandeur;
         break;
       case CHANGE_NOMEQUIPEMENT:
-        draft.nomequipement = action.nomequipement; 
+        draft.nomequipement = action.nomequipement;
         break;
       case CHANGE_QUANTITE:
         draft.quantite = action.quantite;
@@ -44,7 +43,7 @@ const addDemandeReducer = (state = initialState, action) =>
         draft.typededemande = action.typededemande;
         break;
       case CHANGE_POINTURE:
-        draft.pointure = action.pointure; 
+        draft.pointure = action.pointure;
         break;
       case ADD_DATA:
         draft.loading = true;
@@ -65,8 +64,8 @@ const addDemandeReducer = (state = initialState, action) =>
         draft.nomequipement = '';
         draft.quantite = '';
         draft.typededemande = '';
-        draft.pointure = '';  
-        break
+        draft.pointure = '';
+        break;
     }
   });
 

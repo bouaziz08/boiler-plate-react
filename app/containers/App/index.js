@@ -19,6 +19,7 @@ import AddStock from 'containers/AddStock/Loadable';
 import AddDemande from 'containers/AddDemande/Loadable';
 import SideBar from 'containers/SideBar';
 import Header from 'containers/Header';
+import UpdateStock from 'containers/Updatestock/Loadable';
 import GlobalStyle from '../../global-styles';
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/add-stock" component={AddStock} />
           <Route exact path="/add-demande" component={AddDemande} />
+          <Route exact path="/update-stock" component={UpdateStock} />
           <Route exact path="/overview" component={Overview} />
           <Route exact path="/unauthorized" component={Unauthorized} />
           <Route exact path="/not-found" component={NotFound} />

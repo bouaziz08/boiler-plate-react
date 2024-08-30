@@ -14,46 +14,46 @@ import { makeSelectIsSideBarVisible } from 'containers/SideBar/selectors';
 import Box from '@mui/material/Box';
 import makeSelectAddStock, {
   makeSelectIdEquipement,
-  makeSelectquantiteEntrer,
+  makeSelectQuantiteSortie,
   makeSelectLoading,
   makeSelectError,
 } from './selectors';
 
 import {
   changeIdEquipmentAction,
-  changeQuantiteentrerAction,
+  changeQuantiteSortieAction,
   stockPageStoreCleanupAction,
-  addStockAction,
+  updateStockAction,
 } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 // import { Select } from '@mui/material';
 import TextInput from './TextInput';
 // eslint-disable-next-line import/no-absolute-path, import/no-unresolved
-import tmaLoginImage from '/app/images/logo-512x512.png';
+import tmaLoginImage from '/app/images/APP_login_image-634×360.png';
 
 const mapStateToProps = createStructuredSelector({
   isSideBarVisible: makeSelectIsSideBarVisible(),
   addStock: makeSelectAddStock(),
-  idEquipement: makeSelectIdEquipement(),
-  quantiteEntrer: makeSelectquantiteEntrer(),
+  IdEquipement: makeSelectIdEquipement(),
+  QuantiteEntrer: makeSelectQuantiteSortie(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
 });
 
-export function AddStock() {
-  useInjectReducer({ key: 'addStock', reducer });
-  useInjectSaga({ key: 'addStock', saga });
+export function UpdateStock() {
+  useInjectReducer({ key: 'UpdateStock', reducer });
+  useInjectSaga({ key: 'UpdateStock', saga });
   const dispatch = useDispatch();
-  const { isSideBarVisible, idEquipement, quantiteEntrer, loading, error } =
+  const { isSideBarVisible, IdEquipement, QuantiteSortie, loading, error } =
     useSelector(mapStateToProps);
 
   const onChangeIdEquipement = (evt) =>
     dispatch(changeIdEquipmentAction(evt.target.value));
-  const onChangequantiteEntrer = (evt) =>
-    dispatch(changeQuantiteentrerAction(evt.target.value));
+  const onChangequantiteSortie = (evt) =>
+    dispatch(changeQuantiteSortieAction(evt.target.value));
   const onSubmitForm = () => {
-    dispatch(addStockAction(idEquipement, quantiteEntrer));
+    dispatch(updateStockAction(IdEquipement, QuantiteSortie));
   };
 
   useEffect(
@@ -65,7 +65,7 @@ export function AddStock() {
   const handleKeypress = (e) => {
     // it triggers by pressing the enter key
     if (e.keyCode === 13) {
-      if (idEquipement && quantiteEntrer) onSubmitForm();
+      if (IdEquipement && QuantiteSortie) onSubmitForm();
     }
   };
   return (
@@ -120,23 +120,23 @@ export function AddStock() {
             loading={loading}
           >
             <TextInput
-              value={idEquipement}
+              value={IdEquipement}
               disabled={loading}
               label="Id Equipment"
               onChange={onChangeIdEquipement}
               onKeyUp={handleKeypress}
             />
             <TextInput
-              value={quantiteEntrer}
+              value={QuantiteSortie}
               disabled={loading}
               label="Quantite"
-              onChange={onChangequantiteEntrer}
+              onChange={onChangequantiteSortie}
               onKeyUp={handleKeypress}
             />
             <StyledSubmitButton
               sx={{ textTransform: 'none', width: '222px' }}
               variant="contained"
-              disabled={!(idEquipement && quantiteEntrer) || loading}
+              disabled={!(IdEquipement && QuantiteSortie) || loading}
               onClick={onSubmitForm}
             >
               confirmer
@@ -147,6 +147,6 @@ export function AddStock() {
     </Box>
   );
 }
-AddStock.propTypes = {};
+UpdateStock.propTypes = {};
 
-export default AddStock;
+export default UpdateStock;
