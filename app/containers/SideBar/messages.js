@@ -21,6 +21,14 @@ export default defineMessages({
     id: `${scope}.login`,
     defaultMessage: '-Log in',
   },
+  addStock: {
+    id: `${scope}.addStock`,
+    defaultMessage: '-Ajouter stock'
+  },
+  addDemande: {
+    id: `${scope}.addDemande`,
+    defaultMessage: '-Ajouter demande'
+  },
   unauthorized: {
     id: `${scope}.unauthorized`,
     defaultMessage: '-Unauthorized',

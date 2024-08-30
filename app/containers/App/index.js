@@ -15,7 +15,8 @@ import LoginPage from 'pages/LoginPage/Loadable';
 
 import Unauthorized from 'pages/Unauthorized/Loadable';
 import NotFound from 'pages/NotFound/Loadable';
-
+import AddStock from 'containers/AddStock/Loadable';
+import AddDemande from 'containers/AddDemande/Loadable';
 import SideBar from 'containers/SideBar';
 import Header from 'containers/Header';
 import GlobalStyle from '../../global-styles';
@@ -27,6 +28,8 @@ export default function App() {
         <SideBar />
         <Switch>
           <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/add-stock" component={AddStock} />
+          <Route exact path="/add-demande" component={AddDemande} />
           <Route exact path="/overview" component={Overview} />
           <Route exact path="/unauthorized" component={Unauthorized} />
           <Route exact path="/not-found" component={NotFound} />

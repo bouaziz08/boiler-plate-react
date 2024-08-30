@@ -6,7 +6,29 @@ export const accessControlRules = {
       'minimal-access',
       'leader',
       'technicien-technique',
-      'technicien',
+      'technicien','jklfds',
     ],
   },
+  addStock: {
+  path: '/add-stock',
+  accessLevel: [
+    'admin',
+    'minimal-access',
+    'leader',
+    'technicien-technique',
+    'technicien','jklfds',
+    'bbouaziz',
+    ],
+  }, 
+  addDemande: {
+    path: '/add-demande',
+    accessLevel: [
+      'admin',
+      'minimal-access',
+      'leader',
+      'technicien-technique',
+      'technicien','jklfds',
+      'bbouaziz',
+    ],
+  }, 
 };

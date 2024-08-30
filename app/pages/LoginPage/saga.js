@@ -4,11 +4,12 @@ import { loginUserErrorAction, loginUserSuccessAction } from './actions';
 import { LOGIN_USER, WebService } from './constants';
 
 export function* loginUser({ username, password }) {
+  console.log(username)
   try {
     const { data } = yield call(
       request.post,
       WebService.AUTH_REQUEST,
-      { name: username, password },
+      { username, password },
       {
         headers: {
           'Content-Type': 'application/json',
